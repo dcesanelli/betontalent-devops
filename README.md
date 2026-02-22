@@ -44,7 +44,7 @@ Write a Terraform configuration that accomplishes the following:
 
 ---
 
-## Task 2: AWS Cloud Security
+## [Task 2: AWS Cloud Security](./task2/README.md)
 
 ### Context
 

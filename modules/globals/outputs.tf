@@ -23,3 +23,8 @@ output "region" {
   description = "AWS region where resources are deployed."
   value       = var.region
 }
+
+output "account_id" {
+  description = "AWS Account ID where resources are deployed."
+  value       = local.account_id
+}

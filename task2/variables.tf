@@ -1,13 +1,7 @@
-variable "globals" {
-  description = "Output from globals module"
-  type = object({
-    account_id     = string
-    env            = string
-    global_tags    = map(string)
-    project_prefix = string
-    name_prefix    = string
-    region         = string
-  })
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "availability_zones" {
@@ -40,3 +34,14 @@ variable "database_subnets_cidrs" {
   default     = ["10.0.201.0/24", "10.0.202.0/24"]
 }
 
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "ami_id" {
+  description = "AMI ID for the EC2 instance (Amazon Linux 2)"
+  type        = string
+  default     = "ami-0f3caa1cf4417e51b"
+}

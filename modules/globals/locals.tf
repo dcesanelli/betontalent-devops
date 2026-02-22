@@ -1,8 +1,12 @@
+data "aws_caller_identity" "current" {}
+
 # Use locals to define common values and tags for the project. 
 locals {
   environment = terraform.workspace == "default" ? "dev" : terraform.workspace
 
   name_prefix = "${var.project_prefix}-${local.environment}"
+
+  account_id = data.aws_caller_identity.current.account_id
 
   global_tags = {
     "location"          = var.region
