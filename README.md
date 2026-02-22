@@ -6,7 +6,7 @@ The DevOps Code Challenge aims to assess candidates' ability to design, implemen
 
 ---
 
-## [Task 1: Terraform Module](./task1/README.md)
+## [Task 1: Terraform Module](https://github.com/dcesanelli/betontalent-devops/blob/task1/task1/README.md)
 
 ### Context
 
