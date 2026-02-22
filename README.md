@@ -83,7 +83,9 @@ Create an Infrastructure as Code (laC) template using Terraform that accomplishe
 
 ---
 
-## Task 3: AWS Lambda/Terraform Troubleshooting
+## [Task 3: AWS Lambda/Terraform Troubleshooting](https://github.com/dcesanelli/devops-aws-lambda-troubleshooting-files)
+
+Solution in [https://github.com/dcesanelli/devops-aws-lambda-troubleshooting-files](https://github.com/dcesanelli/devops-aws-lambda-troubleshooting-files)
 
 **Directory Structure:**
 
