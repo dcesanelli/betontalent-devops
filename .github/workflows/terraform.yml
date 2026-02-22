@@ -45,7 +45,7 @@ jobs:
           terraform_version: "1.14.0"
 
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init -input=false -backend=false
         working-directory: ${{ matrix.folder }}
 
       - name: Terraform Validate
