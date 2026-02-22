@@ -1,0 +1,53 @@
+name: Validate Terraform
+# Run on push to main and on pull requests targeting main
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  # Check Terraform formatting
+  fmt:
+    name: Terraform Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.14.0"
+
+      - name: Check formatting
+        run: terraform fmt -check -recursive
+
+  # Validate Terraform configuration
+  validate:
+    name: Terraform Validate
+    runs-on: ubuntu-latest
+    # Only run validation if formatting check passes
+    needs: fmt
+
+    # Run it for each folder (task1, task2, bootstrap)
+    strategy:
+      matrix:
+        folder: ["task1", "task2", "bootstrap"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.14.0"
+
+      - name: Terraform Init
+        run: terraform init -input=false -backend=false
+        working-directory: ${{ matrix.folder }}
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: ${{ matrix.folder }}
